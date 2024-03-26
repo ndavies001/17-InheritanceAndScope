@@ -1,5 +1,5 @@
 ###############################################################################
-# TODO: 1. (4 pts)
+# done: 1. (4 pts)
 #
 #   For this module, we are going to build off our Pet class that we created in
 #   m2 of the session 16 coding exercises.
@@ -26,11 +26,29 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+class Pet:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def speak(self):
+        return "Hello, I am a pet!"
+
+class Dog(Pet):
+    def fetch(self):
+        print(f"{self.name} ran to get the stick!")
+
+    def speak(self):
+        return "Woof woof!"
+
+dog = Dog("Buddy", 3)
+print(dog.speak())  
+dog.fetch() 
 
 ###############################################################################
-# TODO: 2. (4 pts)
+# done: 2. (4 pts)
 #
-#   Now, write your own class of whatever type of pet you wish.
+#   Now,write your own class of whatever type of pet you wish.
 #
 #   Your class should meet these criteria:
 #
@@ -46,9 +64,25 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+class Cat(Pet):
+    def __init__(self, name, age, color, breed):
+        super().__init__(name, age)
+        self.color = color
+        self.breed = breed
+
+    def purr(self):
+        return f"{self.name} the {self.color} {self.breed} is purring happily."
+
+    def scratch(self):
+        return f"{self.name} the {self.color} {self.breed} scratches the furniture."
+
+cat = Cat("Whiskers", 5, "grey", "Persian")
+print(cat.speak())  
+print(cat.purr())   
+print(cat.scratch())  
 
 ###############################################################################
-# TODO: 3. (4 pts)
+# done: 3. (4 pts)
 #
 #   Now let's use our classes!
 #
@@ -71,4 +105,54 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+class Pet:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def __str__(self):
+        return f"{self.name} is {self.age} years old."
+
+    def speak(self):
+        return "Hello, I am a pet!"
+
+class Dog(Pet):
+    def fetch(self):
+        print(f"{self.name} ran to get the stick!")
+
+    def speak(self):
+        return "Woof woof!"
+
+class Cat(Pet):
+    def __init__(self, name, age, color, favorite_food):
+        super().__init__(name, age)
+        self.color = color
+        self.favorite_food = favorite_food
+
+    def purr(self):
+        return f"{self.name} purrs happily."
+
+    def eat(self):
+        return f"{self.name} enjoys eating {self.favorite_food}."
+
+def main():
+
+    dog = Dog("Buddy", 3)
+    cat = Cat("Whiskers", 2, "gray", "tuna")
+
+
+    print(dog)
+    print(cat)
+
+    
+    print(dog.speak())
+    dog.fetch()
+
+   
+    print(cat.speak())  
+    print(cat.purr())
+    print(cat.eat())
+
+if __name__ == "__main__":
+    main()
 
